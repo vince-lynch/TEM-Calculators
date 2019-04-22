@@ -1,0 +1,142 @@
+
+<p>Pump or Fan VSD savings estimator<br/></p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Flow rate (New)
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="90" pattern="[0-9]">
+			</td>
+			<td>
+				m^3/hr
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (Original)
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="100" pattern="[0-9]">
+			</td>
+			<td>
+				m^3/hr
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Head pressure
+			</td>
+			<td>
+				<input type="number" id="input3" placeholder="30" pattern="[0-9]">
+			</td>
+			<td>
+				m
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Pump power (absorbed)
+			</td>
+			<td>
+				<input type="number" id="input4" placeholder="13" pattern="[0-9]">
+			</td>
+			<td>
+				kW
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+				Operating hours
+			</td>
+			<td>
+				<input type="number" id="input5" placeholder="1000" pattern="[0-9]">
+			</td>
+			<td>
+				h
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Pump power (new)
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="9.477">
+			</td>
+			<td>
+				kW
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Head pressure (new)
+			</td>
+			<td>
+				<input type="text" id="output2" readonly  placeholder="24.3">
+			</td>
+			<td>
+				m
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Saving (energy)
+			</td>
+			<td>
+				<input type="text" id="output3" readonly  placeholder="3523">
+			</td>
+			<td>
+				kWh
+			</td>
+		</tr>
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var flowRateNew = parseFloat(jQuery("#input1").val());
+ var flowRateOriginal = parseFloat(jQuery("#input2").val());
+ var headPressure = parseFloat(jQuery("#input3").val());
+ var pumpPower = parseFloat(jQuery("#input4").val());
+ var operatingHours = parseFloat(jQuery("#input5").val());
+ //=(C67*C68)/(6356*C69)
+ //var result1 = ((C85/C86)^3)*C88;
+ var ratio = (flowRateNew/flowRateOriginal);
+ var result1 = (ratio * ratio * ratio)*pumpPower;
+ jQuery("#output1").val(result1);
+ //
+ //var result2 = ((C85/C86)^2)*C87;
+ var result2 = (ratio * ratio)*headPressure;
+ jQuery("#output2").val(result2);
+ //
+ //var result3 = (C88*C89)-(C90*C89);
+ var result3 = (pumpPower*operatingHours)-(result1*operatingHours);
+ jQuery("#output3").val(result3);
+});
+
+
+</script>

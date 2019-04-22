@@ -1,0 +1,159 @@
+
+<p>Pump head pressure with change in flow rate<br/>
+</p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Head pressure (original)
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="50" pattern="[0-9]">
+			</td>
+			<td>
+				ft.w.g
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (new)
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="300" pattern="[0-9]">
+			</td>
+			<td>
+				gpm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (Original)
+			</td>
+			<td>
+				<input type="number" id="input3" placeholder="220" pattern="[0-9]">
+			</td>
+			<td>
+				gpm
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Head pressure (new)
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="92.9752">
+			</td>
+			<td>
+				ft.w.g
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Head pressure (original)
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="150" pattern="[0-9]">
+			</td>
+			<td>
+				kPa
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (New)
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="30" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (Original)
+			</td>
+			<td>
+				<input type="number" id="input3-b" placeholder="20" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Head pressure (new)
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="337.5">
+			</td>
+			<td>
+				kPa
+			</td>
+		</tr>
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var headPressure = parseFloat(jQuery("#input1").val());
+ var flowRateNew = parseFloat(jQuery("#input2").val());
+ var flowRateOriginal = parseFloat(jQuery("#input3").val());
+ //=C24*(C25/C26)^2
+ var ratio = (flowRateNew/flowRateOriginal);
+ var result1 = headPressure*(ratio*ratio);
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var headPressure = parseFloat(jQuery("#input1-b").val());
+ var flowRateNew = parseFloat(jQuery("#input2-b").val());
+ var flowRateOriginal = parseFloat(jQuery("#input3-b").val());
+ //=C15*(C16/C17)
+ var ratio = (flowRateNew/flowRateOriginal);
+ var result1 = headPressure*(ratio*ratio);
+ jQuery("#output1-b").val(result1);
+});
+
+</script>

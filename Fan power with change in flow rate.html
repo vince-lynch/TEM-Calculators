@@ -1,0 +1,162 @@
+
+<p>Fan power with change in flow rate<br/>
+	(Centrifugal fan handling air at 101.3 kPa, 20°C 1.2kg/m^3 - 14.7 psi, 70°F, 0.075 lb/ft^3)
+</p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Fan power (Original)
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="1.3" pattern="[0-9]">
+			</td>
+			<td>
+				BHP
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (new)
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="2000" pattern="[0-9]">
+			</td>
+			<td>
+				cfm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (original)
+			</td>
+			<td>
+				<input type="number" id="input3" placeholder="1800" pattern="[0-9]">
+			</td>
+			<td>
+				cfm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Fan power (New)
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="1.783264">
+			</td>
+			<td>
+				BHP
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Fan power (Original)
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="1.3" pattern="[0-9]">
+			</td>
+			<td>
+				kW
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (new)
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="1000" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (original)
+			</td>
+			<td>
+				<input type="number" id="input3-b" placeholder="900" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Fan power (New)
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="1.783264">
+			</td>
+			<td>
+				kW
+			</td>
+		</tr>
+
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var fanPower = parseFloat(jQuery("#input1").val());
+ var flowRateNew = parseFloat(jQuery("#input2").val());
+ var flowRateOriginal = parseFloat(jQuery("#input3").val());
+ //=C46*(C47/C48)^3
+ var part1 = ((flowRateNew/flowRateOriginal));
+ var result1 = fanPower*(part1 * part1 * part1);
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var fanPower = parseFloat(jQuery("#input1-b").val());
+ var flowRateNew = parseFloat(jQuery("#input2-b").val());
+ var flowRateOriginal = parseFloat(jQuery("#input3-b").val());
+ //=C36*(C37/C38)^2
+  var part1 = ((flowRateNew/flowRateOriginal));
+ var result1 = fanPower*(part1 * part1 * part1);
+ jQuery("#output1-b").val(result1);
+
+});
+
+</script>

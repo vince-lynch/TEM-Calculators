@@ -1,0 +1,131 @@
+
+<p>Duct velocity calculator<br/></p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Flow rate
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="2000" pattern="[0-9]">
+			</td>
+			<td>
+				cfm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Cross sectional area
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="2" pattern="[0-9]">
+			</td>
+			<td>
+				ft^2
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Velocity
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="1000">
+			</td>
+			<td>
+				ft/min
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Flow rate
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="1000" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Cross sectional area 
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="0.2" pattern="[0-9]">
+			</td>
+			<td>
+				m^2
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Velocity
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="5">
+			</td>
+			<td>
+				m/s
+			</td>
+		</tr>
+
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var flowRate = parseFloat(jQuery("#input1").val());
+ var crossSectional = parseFloat(jQuery("#input2").val());
+ var result1 = flowRate / crossSectional;
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var flowRate = parseFloat(jQuery("#input1-b").val());
+ var crossSectional = parseFloat(jQuery("#input2-b").val());
+ var result1 =flowRate/(1000*crossSectional);
+ jQuery("#output1-b").val(result1);
+
+});
+
+</script>

@@ -1,0 +1,157 @@
+
+<p>Pump impeller diameter with change in flow rate<br/>
+	(impellor trim - last resort, VFD should be used instead)
+</p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Impellor diamter
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="6" pattern="[0-9]">
+			</td>
+			<td>
+				inches
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (New)
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="300" pattern="[0-9]">
+			</td>
+			<td>
+				gpm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (Original)
+			</td>
+			<td>
+				<input type="number" id="input3" placeholder="250" pattern="[0-9]">
+			</td>
+			<td>
+				gpm
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Impellor diamter (New) 
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="7.2">
+			</td>
+			<td>
+				inches
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Impellor diamter 
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="200" pattern="[0-9]">
+			</td>
+			<td>
+				mm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (New)
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="30" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate (Original)
+			</td>
+			<td>
+				<input type="number" id="input3-b" placeholder="20" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Impellor diamter (New)
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="300">
+			</td>
+			<td>
+				mm
+			</td>
+		</tr>
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var impellorDia = parseFloat(jQuery("#input1").val());
+ var flowRateNew = parseFloat(jQuery("#input2").val());
+ var flowRateOriginal = parseFloat(jQuery("#input3").val());
+ var result1 =impellorDia*(flowRateNew/flowRateOriginal);
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var impellorDia = parseFloat(jQuery("#input1-b").val());
+ var flowRateNew = parseFloat(jQuery("#input2-b").val());
+ var flowRateOriginal = parseFloat(jQuery("#input3-b").val());
+ //=C15*(C16/C17)
+ var result1 =impellorDia*(flowRateNew/flowRateOriginal);
+ jQuery("#output1-b").val(result1);
+});
+
+</script>

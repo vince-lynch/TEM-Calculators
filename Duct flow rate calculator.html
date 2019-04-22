@@ -1,0 +1,145 @@
+
+<p>Duct flow rate calculator<br/></p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Cross sectional area
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="2" pattern="[0-9]">
+			</td>
+			<td>
+				ft^2
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Velocity
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="1000" pattern="[0-9]">
+			</td>
+			<td>
+				ft/min
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate 
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="2000">
+			</td>
+			<td>
+				cfm
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Cross sectional area
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="2" pattern="[0-9]">
+			</td>
+			<td>
+				m^2
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Velocity
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="10" pattern="[0-9]">
+			</td>
+			<td>
+				m/s
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="20000">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Flow rate
+			</td>
+			<td>
+				<input type="text" id="output2-b" readonly  placeholder="72000">
+			</td>
+			<td>
+				m^3/h
+			</td>
+		</tr>
+
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var crossSectional = parseFloat(jQuery("#input1").val());
+ var velocity = parseFloat(jQuery("#input2").val());
+ var result1 = crossSectional * velocity;
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var crossSectional = parseFloat(jQuery("#input1-b").val());
+ var velocity = parseFloat(jQuery("#input2-b").val());
+ var result1 = 1000*crossSectional*velocity;
+ jQuery("#output1-b").val(result1);
+ //
+ var result2 = crossSectional*velocity*3600;
+ jQuery("#output2-b").val(result2);
+});
+
+</script>

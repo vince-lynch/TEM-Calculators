@@ -1,0 +1,160 @@
+
+<p>Fan power calculation<br/>
+	(Theoretical fan power)
+</p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Flow rate
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="8000" pattern="[0-9]">
+			</td>
+			<td>
+				cfm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Static pressure
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="0.75" pattern="[0-9]">
+			</td>
+			<td>
+				in.w.g
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Efficiency (fan)
+			</td>
+			<td>
+				<input type="number" id="input3" placeholder="0.65" pattern="[0-9]">
+			</td>
+			<td>
+				%
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Fan Power
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="1.45229">
+			</td>
+			<td>
+				BHP
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Flow rate
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="4000" pattern="[0-9]">
+			</td>
+			<td>
+				L/s
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Static pressure
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="185" pattern="[0-9]">
+			</td>
+			<td>
+				kPa
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Efficiency (fan)
+			</td>
+			<td>
+				<input type="number" id="input3-b" placeholder="0.65" pattern="[0-9]">
+			</td>
+			<td>
+				%
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Fan Power
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="1.13846153">
+			</td>
+			<td>
+				kW
+			</td>
+		</tr>
+
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var flowRate = parseFloat(jQuery("#input1").val());
+ var staticPressure = parseFloat(jQuery("#input2").val());
+ var efficiency = parseFloat(jQuery("#input3").val());
+ //=(C67*C68)/(6356*C69)
+ var result1 = (staticPressure * flowRate)/(6356 * efficiency)
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var flowRate = parseFloat(jQuery("#input1-b").val());
+ var staticPressure = parseFloat(jQuery("#input2-b").val());
+ var efficiency = parseFloat(jQuery("#input3-b").val());
+ //=C36*(C37/C38)^2
+ var result1 = ((flowRate*staticPressure)/(1000*efficiency))/1000
+ jQuery("#output1-b").val(result1);
+
+});
+
+</script>
