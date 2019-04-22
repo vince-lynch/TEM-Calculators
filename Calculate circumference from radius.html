@@ -1,0 +1,101 @@
+
+<p>Calculate circumference from radius<br/></p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Radius
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="2" pattern="[0-9]">
+			</td>
+			<td>
+				inches
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Circumference 
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="12.5664">
+			</td>
+			<td>
+				inches
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Radius 
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="20" pattern="[0-9]">
+			</td>
+			<td>
+				mm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Circumference
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="125.664">
+			</td>
+			<td>
+				mm
+			</td>
+		</tr>
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var radius = parseFloat(jQuery("#input1").val());
+ var result1 = 3.1416*2*radius;
+ jQuery("#output1").val(result1);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var radius = parseFloat(jQuery("#input1-b").val());
+ var result1 = 3.1416*2*radius;
+ jQuery("#output1-b").val(result1);
+});
+
+</script>

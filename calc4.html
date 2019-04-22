@@ -1,0 +1,37 @@
+<p>Three phase AC kilowatts to Amps Calculator (line to neutral)<br/></p>
+<p>
+<label> Power
+<input type="text" id="input1" placeholder="2">
+</label>
+</p>
+<p>
+<label> Voltage
+<input type="text" id="input2" placeholder="230">
+</label>
+</p>
+<p>
+<label> Power Factor
+<input type="text" id="input3" placeholder="0.95">
+</label>
+</p>
+<p>
+<button id="calculate">Calculate</button>
+</p>
+<p>
+<label> Current
+<input type="text" id="output1" readonly placeholder="3.05">
+</label>
+</p>
+<script>
+
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var power = parseFloat(jQuery("#input1").val());
+ var voltage = parseFloat(jQuery("#input2").val());
+ var powerFactor = parseFloat(jQuery("#input3").val());
+ var result =1000*power/(3*powerFactor*voltage)
+ jQuery("#output1").val(result);
+});
+
+</script>

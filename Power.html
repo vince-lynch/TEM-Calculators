@@ -1,0 +1,32 @@
+<p>I am raw html block.<br/>Click edit button to change this html</p>
+
+<p>
+<label> Power
+<input type="text" id="input1">
+</label>
+</p>
+<p>
+<label> Voltage
+<input type="text" id="input2">
+</label>
+</p>
+<p>
+<button id="calculate">Calculate</button>
+</p>
+<p>
+<label> Current
+<input type="text" id="output1" readonly>
+</label>
+</p>
+<script>
+
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var power = parseFloat(jQuery("#input1").val());
+ var voltage = parseFloat(jQuery("#input2").val());
+ var result = 1000 * power/voltage;
+ jQuery("#output1").val(result);
+});
+
+</script>

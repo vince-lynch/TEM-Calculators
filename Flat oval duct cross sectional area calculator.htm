@@ -1,0 +1,160 @@
+
+<p>Calculate circumference from radius<br/></p>
+
+<p>Imperial units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Total width
+			</td>
+			<td>
+				<input type="number" id="input1" placeholder="20" pattern="[0-9]">
+			</td>
+			<td>
+				inches
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Height
+			</td>
+			<td>
+				<input type="number" id="input2" placeholder="6" pattern="[0-9]">
+			</td>
+			<td>
+				inches
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Area 
+			</td>
+			<td>
+				<input type="text" id="output1" readonly  placeholder="112.2744">
+			</td>
+			<td>
+				inches^2
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Area 
+			</td>
+			<td>
+				<input type="text" id="output2" readonly  placeholder="0.779683">
+			</td>
+			<td>
+				ft^2
+			</td>
+		</tr>
+
+	</table>
+
+
+<p>Metric units<br/></p>
+
+	<table>
+		<tr>
+			<td>
+				Total width 
+			</td>
+			<td>
+				<input type="number" id="input1-b" placeholder="500" pattern="[0-9]">
+			</td>
+			<td>
+				mm
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Height
+			</td>
+			<td>
+				<input type="number" id="input2-b" placeholder="150" pattern="[0-9]">
+			</td>
+			<td>
+				mm
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<button id="calculate-b">Calculate</button>
+			</td>
+			<td>
+			</td>			
+		</tr>
+
+		<tr>
+			<td>
+				Area
+			</td>
+			<td>
+				<input type="text" id="output1-b" readonly  placeholder="70171.5">
+			</td>
+			<td>
+				mm^2
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Area
+			</td>
+			<td>
+				<input type="text" id="output2-b" readonly  placeholder="0.0701715">
+			</td>
+			<td>
+				m^2
+			</td>
+		</tr>
+
+
+	</table>
+
+<script>
+// calculator 1
+jQuery("button#calculate").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var totalWidth = parseFloat(jQuery("#input1").val());
+ var height = parseFloat(jQuery("#input2").val());
+ var result1 = (totalWidth-height)*height+(1/4)*3.1416*(height * height);
+ jQuery("#output1").val(result1);
+ //=C75/144
+ var result2 =result1/144;
+ jQuery("#output2").val(result2);
+});
+// calculator 2
+jQuery("button#calculate-b").on('click', ()=>{
+ // do calculation
+ console.log('do calc');
+ var totalWidth = parseFloat(jQuery("#input1-b").val());
+ var height = parseFloat(jQuery("#input2-b").val());
+ var result1 = (totalWidth-height)*height+(1/4)*3.1416*(height * height)
+ jQuery("#output1-b").val(result1);
+ //
+ var result2 = result1/1000000;
+ jQuery("#output2-b").val(result2);
+});
+
+</script>
